@@ -1,4 +1,4 @@
 
 const VIEWPORT_WIDTH = 800;
 const VIEWPORT_HEIGHT = 500;
-const BALL_COUNT = 10;
+const BALL_COUNT = 20;

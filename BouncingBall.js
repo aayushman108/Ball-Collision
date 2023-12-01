@@ -7,7 +7,7 @@ class BouncingBall {
 
       this.createBallElement();
     }
-
+    //Creating ball 
     createBallElement() {
       this.ball = document.createElement('div');
       this.ball.className = 'ball';
@@ -16,16 +16,18 @@ class BouncingBall {
       this.setBallStyle();
       this.updateBallPosition();
     }
-
+    
+    //sizing and styling ball
     setBallStyle() {
-      const size = 20 + Math.floor(Math.random() * 30);
+      const size = 20 + Math.floor(Math.random() * 20);
       const color = this.getRandomColor();
 
       this.ball.style.width = `${size}px`;
       this.ball.style.height = `${size}px`;
       this.ball.style.backgroundColor = color;
     }
-
+    
+    //color generating
     getRandomColor() {
       const letters = '0123456789ABCDEF';
       let color = '#';
@@ -60,13 +62,13 @@ class BouncingBall {
       // Check for collisions with other balls
       this.checkCollisions(balls);
     }
-
+    //collision checking
     checkCollisions(balls) {
       balls.forEach( otherBall => {
         if (otherBall !== this) {
           const dx = this.positionX - otherBall.positionX;
           const dy = this.positionY - otherBall.positionY;
-          const distance = Math.sqrt(dx * dx + dy * dy);
+          const distance = Math.sqrt(dx **2 + dy **2);
 
           if (distance < (parseInt(this.ball.style.width) + parseInt(otherBall.ball.style.width)) / 2) {
             // Collided, reverse directions
