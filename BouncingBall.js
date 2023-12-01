@@ -19,7 +19,7 @@ class BouncingBall {
     
     //sizing and styling ball
     setBallStyle() {
-      const size = 20 + Math.floor(Math.random() * 20);
+      const size = 20 + Math.ceil(Math.random() * 20);
       const color = this.getRandomColor();
 
       this.ball.style.width = `${size}px`;
@@ -70,7 +70,7 @@ class BouncingBall {
           const dy = this.positionY - otherBall.positionY;
           const distance = Math.sqrt(dx **2 + dy **2);
 
-          if (distance < (parseInt(this.ball.style.width) + parseInt(otherBall.ball.style.width)) / 2) {
+          if (distance <= (parseInt(this.ball.style.width) + parseInt(otherBall.ball.style.width)) / 2) {
             // Collided, reverse directions
             this.velocityX *= -1;
             this.velocityY *= -1;
